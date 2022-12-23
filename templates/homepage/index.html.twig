@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-heyyy
+{# app.user access to the user #}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<p>Connected as {{app.user.email}}</p>
+{% endif %}
+{% if is_granted('ROLE_ADMIN') %}
+<p>Connected as admin</p>
+{% endif %}
+
+<h1>Welcome !</h1>
 {% endblock %}
