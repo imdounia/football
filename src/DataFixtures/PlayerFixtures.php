@@ -5,10 +5,12 @@ namespace App\DataFixtures;
 use DateTime;
 use App\Entity\Team;
 use App\Entity\Player;
+use App\DataFixtures\PlayerFixtures;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class PlayerFixtures extends Fixture
+class PlayerFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function getOrder()
     {

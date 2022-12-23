@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-3">
+        <img src="{{asset('img/portrait/' ~ entity.portrait)}}" class="img-fluid" />
+    </div>
+    <div class="col-9">
+        <h5>{{entity.firstname ~ ' '~ entity.lastname}}</h5>
+        <p>Birthday: {{entity.birthday | date('d/m/Y')}}</p>
+        <p>Number: {{entity.number}}</p>
+        <p>Number: {{entity.team.name}}</p>
+        <p>
+            <a href="{{url('player.index')}}" class="btn btn-primary">Back to players</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Team;
+use App\DataFixtures\TeamFixtures;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -10,7 +11,7 @@ class TeamFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i=0; $i < 4; $i++) { 
+        for ($i=0; $i < 5; $i++) { 
             $entity = new Team();
             $entity
             ->setName("team$i")
