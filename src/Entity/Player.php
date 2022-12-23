@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\PlayerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PlayerRepository;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: PlayerRepository::class)]
 class Player
@@ -73,12 +74,12 @@ class Player
         return $this;
     }
 
-    public function getPortrait(): ?string
+    public function getPortrait():null|string|UploadedFile
     {
         return $this->portrait;
     }
 
-    public function setPortrait(string $portrait): self
+    public function setPortrait(null|string|UploadedFile $portrait): self
     {
         $this->portrait = $portrait;
 
