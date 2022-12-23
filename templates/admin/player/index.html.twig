@@ -11,13 +11,15 @@
 {% endfor %}
 <table class="table table-stripped">
 <tr>
+<th>Portrait</th>
 <th>Name</th>
-<th>Team</th>
 <th></th>
 {% for player in entities %}
     <tr>
-        <td>{{(player.firstname ~' '~player.lastname) | title}}</td>
-        <td><img src="{{asset('img/flag/' ~ player.team.flag)}}" class="img-fluid flag" /></td>
+        <td><img src="{{asset('img/portrait/' ~ player.portrait)}}" class="img-fluid flag" /></td>
+        <td>
+        {{(player.firstname ~' '~player.lastname) | title}}
+        </td>
         <td>
             <a href="{{url('admin.player.form.edit', {id: player.id})}}" class="btn btn-warning">Edit</a>
             <a href="{{url('admin.player.remove', {id: player.id})}}" class="btn btn-danger">Remove</a>
