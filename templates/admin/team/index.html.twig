@@ -5,7 +5,7 @@
 <p>
     <a href="{{url('admin.team.form.add')}}" class="btn btn-info">Add</a>
 </p>
-{# affichage des messages flash #}
+{# show flash messages #}
 {% for notice in app.flashes('notice') %}
     <div class="alert alert-success" role="alert">{{notice}}</div>
 {% endfor %}
