@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Add a national team</h2>
+{# {{form(form)}} #}
+{{form_start(form, {attr: {novalidate: 'novalidate'}})}}
+    <p>
+        {{form_label(form.name, 'Name :')}}
+        {{form_widget(form.name)}}
+        {{form_errors(form.name)}}
+    </p>
+    <p>
+        {{form_label(form.flag, 'Flag :')}}
+        {{form_widget(form.flag)}}
+        {{form_errors(form.flag)}}
+    </p>
+    <p>
+        <input type="submit" class="btn btn-primary" value="Send" />
+    </p>
+{{form_end(form)}}
+{% endblock %}

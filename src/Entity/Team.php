@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\TeamRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Player;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TeamRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
 class Team
@@ -46,12 +48,12 @@ class Team
         return $this;
     }
 
-    public function getFlag(): ?string
+    public function getFlag():null|string|UploadedFile
     {
         return $this->flag;
     }
 
-    public function setFlag(string $flag): self
+    public function setFlag(null|string|UploadedFile $flag): self
     {
         $this->flag = $flag;
 

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>National team</h2>
+<p>
+    <a href="{{url('admin.team.form.add')}}" class="btn btn-info">Add</a>
+</p>
+{# affichage des messages flash #}
+{% for notice in app.flashes('notice') %}
+    <div class="alert alert-success" role="alert">{{notice}}</div>
+{% endfor %}
+<table class="table table-stripped">
+<tr>
+<th>National team</th>
+<th>Flag</th>
+<th></th>
+{% for team in entities %}
+    <tr>
+        <td>{{team.name | title}}</td>
+        <td><img src="{{asset('img/flag/' ~ team.flag)}}" class="img-fluid flag" /></td>
+        <td>
+            <a href="{{url('admin.team.form.edit', {id: team.id})}}" class="btn btn-warning">Edit</a>
+            <a href="{{url('admin.team.remove', {id: team.id})}}" class="btn btn-danger">Remove</a>
+        </td>
+    </tr>
+{% endfor %}
+</tr>
+</table>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('js/admin.js')}}" defer></script>
+{% endblock %}

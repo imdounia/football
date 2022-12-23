@@ -10,6 +10,7 @@
         <p>Birthday: {{entity.birthday | date('d/m/Y')}}</p>
         <p>Number: {{entity.number}}</p>
         <p>Number: {{entity.team.name}}</p>
+        <img src="{{asset('img/flag/' ~ entity.team.flag)}}" class="img-fluid" />
         <p>
             <a href="{{url('player.index')}}" class="btn btn-primary">Back to players</a>
         </p>
